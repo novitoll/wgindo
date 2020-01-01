@@ -75,7 +75,7 @@ class Creator(DO):
         return droplet
 
     def install_wg(self, ipv4):
-        print("[+] Waiting for droplet is up and then install WireGuard\n")
+        print("[+] Installing WireGuard\n")
         ssh = subprocess.Popen("scp ./user-data.sh root@{}:/tmp".format(ipv4), shell=True)
         out, err = ssh.communicate()
         if err:
@@ -149,6 +149,8 @@ __        ______ _       ____   ___
         print("[+] IPv4 is {}".format(ipv4))
         break
 
+    print("[!] Waiting for 30 secs to let the droplet deploy")
+    time.sleep(30)
     creator.install_wg(ipv4)
 
     print("[!] STDOUT from user-data.sh\n")
