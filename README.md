@@ -8,6 +8,12 @@ Spawns a 512Mb droplet with Debian distr in DigitalOcean and installs WireGuard 
 
 ![gif](https://raw.githubusercontent.com/Novitoll/wgindo/master/do.gif)
 
+![do](https://raw.githubusercontent.com/Novitoll/wgindo/master/do.jpg)
+
+## Press F
+
+https://www.donationalerts.com/r/novitoll
+
 ## Usage
 
 ```
@@ -146,5 +152,3 @@ peer: nZ1BCXQB/vvJ4hQZxux4UR70RGmngy4IPU0IMJqE42I=
 [+] Press F? -----> https://www.donationalerts.com/r/novitoll
 ```
 
-## PICS!
-![do](https://raw.githubusercontent.com/Novitoll/wgindo/master/do.jpg)
