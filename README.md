@@ -10,9 +10,6 @@ Spawns a 512Mb droplet with Debian distr in DigitalOcean and installs WireGuard 
 
 ![do](https://raw.githubusercontent.com/Novitoll/wgindo/master/do.jpg)
 
-## Press F
-
-https://www.donationalerts.com/r/novitoll
 
 ## Usage
 
