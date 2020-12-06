@@ -19,11 +19,13 @@ function RESET() {
 # 1.
 echo -e "\n[*] 1. Installing WireGuard..\n"
 
-echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
-printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' > /etc/apt/preferences.d/limit-unstable
+echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list.d/buster-backports.list
 
 apt update
 apt install -y wireguard qrencode
+
+echo "[*] 1.1 Installing Linux kernel 5.9 which has built-in WG.."
+apt-get install -y linux-image-5.9.0-4-amd64
 
 # 2.
 echo -e "\n[*] 2. Configuring WireGuard interface..\n"
@@ -63,6 +65,25 @@ EOF
 # 3.
 echo -e "\n[*] 3. Configuring kernel IP forward..\n"
 echo 1 > /proc/sys/net/ipv4/ip_forward
+
+verlte() {
+	local a=$1
+	local b=$2
+	[  "$a" = "$(echo -e "$a\n$b" | sort -V | head -n1)" ]
+}
+
+verlt() {
+	local a=$1
+	local b=$2
+	[ "$a" = "$b" ] && return 1 || verlte $a $b
+}
+
+
+# 3.1
+if verlte $(uname -r) 5.6.0;then
+	echo "\n[!] $() Please reboot to boot with >=5.6 Linux kernel.."
+	exit 1
+fi
 
 # 4.
 echo -e "\n[*] 4. Starting wg0 interface..\n"
@@ -127,4 +148,3 @@ qrencode -t ansiutf8 < /root/peer-$WGPEER_IP.conf
 
 echo
 echo "[+] Done - Scan QR code in your device to connect"
-echo "[+] Press F? -----> https://www.donationalerts.com/r/novitoll"
