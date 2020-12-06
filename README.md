@@ -146,6 +146,5 @@ peer: nZ1BCXQB/vvJ4hQZxux4UR70RGmngy4IPU0IMJqE42I=
 █████████████████████████████████████████████████████████████████
 
 [+] Done - Scan QR code in your device to connect
-[+] Press F? -----> https://www.donationalerts.com/r/novitoll
 ```
 
