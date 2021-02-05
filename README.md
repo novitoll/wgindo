@@ -10,9 +10,6 @@ Spawns a 1Gb droplet with Debian distr in DigitalOcean and installs WireGuard VP
 
 ![do](https://raw.githubusercontent.com/Novitoll/wgindo/master/do.jpg)
 
-## Press F
-
-https://www.donationalerts.com/r/novitoll
 
 ## Usage
 
@@ -149,6 +146,5 @@ peer: nZ1BCXQB/vvJ4hQZxux4UR70RGmngy4IPU0IMJqE42I=
 █████████████████████████████████████████████████████████████████
 
 [+] Done - Scan QR code in your device to connect
-[+] Press F? -----> https://www.donationalerts.com/r/novitoll
 ```
 
