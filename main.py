@@ -8,7 +8,7 @@ import sys
 import time
 
 STATUS_COMPLETE = "completed"
-SIZE_512 = "512mb"
+SIZE_1G = "s-1vcpu-1gb"
 NEW_SSH_KEY = "NEW_SSH_KEY"
 
 def _err(msg):
@@ -45,7 +45,7 @@ class Creator(DO):
     
     def get_metadata(self):
         print("[+] Fetching regions")
-        regions = [r['slug'] for r in self.get_regions() if r['available'] and SIZE_512 in r['sizes']]
+        regions = [r['slug'] for r in self.get_regions() if r['available'] and SIZE_1G in r['sizes']]
         print("[+] Fetching images")
         self.img = [i for i in self.get_images() if i['distribution'] == 'Debian'][0]
         self.regions = [r for r in self.img['regions'] if r in regions]
@@ -68,7 +68,7 @@ class Creator(DO):
             name=name,
             region=region,
             image=self.img['slug'],
-            size_slug=SIZE_512,
+            size_slug=SIZE_1G,
             ssh_keys=[ssh_key],
             backups=False)
         droplet.create()
@@ -97,7 +97,7 @@ __        ______ _       ____   ___
 
                             by @novitoll                                     
 
-   Spawns a 512Mb droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
+   Spawns a 1GB droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
 
     """)
     questions = [

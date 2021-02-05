@@ -1,6 +1,6 @@
 # WGinDO
 
-Spawns a 512Mb droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
+Spawns a 1Gb droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
 
 ## Installation
 
@@ -27,7 +27,7 @@ __        ______ _       ____   ___
 
                             by @novitoll                                     
 
-   Spawns a 512Mb droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
+   Spawns a 1Gb droplet with Debian distr in DigitalOcean and installs WireGuard VPN there.
 
     
 [?] Paste a R/W token for DO API: b92cb8d207f6eed7dc1d4fed279836b295985b8ecfd28618ee7d12d6532ec959
