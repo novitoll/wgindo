@@ -24,8 +24,15 @@ echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/source
 apt update
 apt install -y wireguard qrencode
 
-echo "[*] 1.1 Installing Linux kernel 5.9 which has built-in WG.."
-apt-get install -y linux-image-5.9.0-4-amd64
+if $(uname -r | grep "5.9");then
+	echo "[+] Already installed v5.9 kernel"
+else
+	echo "[*] 1.1 Installing Linux kernel 5.9 which has built-in WG.."
+	apt-get install -y linux-image-5.9.0-4-amd64 || echo "[-] Please install yourself >= v5.9" && exit 1
+
+	echo "[*] REBOOT now"
+	exit 0
+fi
 
 # 2.
 echo -e "\n[*] 2. Configuring WireGuard interface..\n"
